@@ -89,7 +89,7 @@ export const EmployeeButtons = ({_id}) =>{
                 onClick={() => navigate(`/admin-dashboard/employee/${_id}`)}
             >Voir</button>
             <button className={"px-4 py-2 bg-blue-600 rounded-md text-white"}
-                    // onClick={() => handleDelete(_id)}
+                    onClick={() => navigate(`/admin-dashboard/employee/edit/${_id}`)}
             >Editer</button>
             <button className={"px-4 py-2 bg-yellow-600 rounded-md text-white"}
                     // onClick={() => handleDelete(_id)}

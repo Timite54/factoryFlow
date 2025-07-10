@@ -12,6 +12,7 @@ import EditDepartment from "./components/department/EditDepartment.jsx";
 import List from "./components/employee/List.jsx";
 import Add from "./components/employee/Add.jsx";
 import View from "./components/employee/View.jsx";
+import Edit from "./components/employee/Edit.jsx";
 
 const App = () => {
   return (
@@ -34,7 +35,8 @@ const App = () => {
 
                 <Route path={"/admin-dashboard/employees"} element={<List />}></Route>
                 <Route path={"/admin-dashboard/add-employee"} element={<Add />}></Route>
-                <Route path={"employee/:id"} element={<View />}></Route>
+                <Route path={"/admin-dashboard/employee/:id"} element={<View />}></Route>
+                <Route path={"/admin-dashboard/employee/edit/:id"} element={<Edit />}></Route>
 
                  <Route path={"/admin-dashboard/leaves"} element={<AdminSummary />}></Route>
                  <Route path={"/admin-dashboard/salary"} element={<AdminSummary />}></Route>

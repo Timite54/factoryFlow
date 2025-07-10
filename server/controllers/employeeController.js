@@ -88,7 +88,48 @@ const getEmployee = async (req, res) => {
     }catch (error) {
         return res.status(500).json({success: false, error: "Get Employee Server Error"});
     }
-
 }
 
-export {addEmployee, upload, getEmployees, getEmployee};
+const updateEmployee = async (req, res) => {
+    try {
+        const {id} = req.params
+        const { name, maritalStatus, designation, department, salary } = req.body;
+
+        const employee = await Employee.findById({_id: id})
+        if (!employee) {
+            return res
+                .status(404)
+                .json({success: false, error: "Employee Not Found"});
+        }
+
+        const user = await User.findById({_id: employee.userId})
+        if (!user) {
+            return res
+                .status(404)
+                .json({success: false, error: "User Not Found"});
+        }
+
+        const updateUser = await User.findByIdAndUpdate(
+        {_id: employee.userId}, {name})
+        const updateEmployee= await Employee.findByIdAndUpdate(
+            {_id: id},
+            { maritalStatus, designation, department, salary }
+        )
+
+        if (!updateUser || !updateEmployee) {
+            return res
+                .status(404)
+                .json({success: false, error: "Document Not Found"});
+        }
+        return res.status(200).json({
+            success: true,
+            employee: {updateEmployee, updateUser},
+            message: "Employee Updated Successfully"
+        });
+    }catch (error) {
+        return res.status(500).json({success: false, error: "Update Employee Server Error"});
+
+    }
+}
+
+export {addEmployee, upload, getEmployees, getEmployee, updateEmployee};

@@ -9,6 +9,7 @@ import DataTable from "react-data-table-component"
 const List = () => {
     const [employees, setEmployees] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [filteredEmployees, setFilteredEmployees] = useState([]);
 
     useEffect(() => {
         const fetchEmployees = async () => {
@@ -29,11 +30,13 @@ const List = () => {
                             dep_name: emp.department.dep_name,
                             name: emp.userId.name,
                             dob: new Date(emp.dob).toLocaleDateString(),
+
                             profileImage: <img src={`http://localhost:3000/${emp.userId.profileImage}`} alt="profileImage" className={"w-10 h-10 rounded-full"}/>,
                             action:( <EmployeeButtons _id={emp._id}/>)
                         }
                     ))
                     setEmployees(data)
+                    setFilteredEmployees(data);
                 }
             }catch (error) {
                 console.error(error);
@@ -47,6 +50,12 @@ const List = () => {
     }, []);
 
 
+    const handleFilterEmployees = (e) => {
+        const record = e.target.value.toLowerCase();
+        const data = employees.filter( (emp) => emp.name.toLowerCase().includes(record) || emp.dep_name.toLowerCase().includes(record));
+        setFilteredEmployees(data);
+    }
+
     return (
         <div className={"p-6"}>
             <div className={"text-center"}>
@@ -55,9 +64,9 @@ const List = () => {
             <div className={"flex justify-between items-center mb-6"}>
                 <input
                     type="text"
-                    placeholder="Search By Dept Name"
+                    placeholder="Rechercher..."
                     className={"px-4 py-0.5 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"}
-                    // onChange={filterEmployees}
+                    onChange={handleFilterEmployees}
                 />
                 <Link
                     to={"/admin-dashboard/add-employee"}
@@ -65,8 +74,8 @@ const List = () => {
                     Ajouter Un Employé
                 </Link>
             </div>
-            <div>
-                <DataTable columns={columns} data={employees} pagination/>
+            <div className={""}>
+                <DataTable columns={columns} data={filteredEmployees} pagination/>
             </div>
         </div>
 
