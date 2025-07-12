@@ -1,18 +1,23 @@
 import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-import Login from "./pages/Login.jsx";
-import AdminDashboard from "./pages/AdminDashboard.jsx";
-import EmployeDashboard from "./pages/EmployeDashboard.jsx";
-import PrivateRoutes from "./utils/PrivateRoutes.jsx";
-import RoleBaseRoutes from "./utils/RoleBaseRoutes.jsx";
-import UnauthorizedPage from "./pages/UnauthorizedPage.jsx";
-import AdminSummary from "./components/dashboard/AdminSummary.jsx";
-import DepartmentList from "./components/department/DepartmentList.jsx";
-import AddDepartment from "./components/department/AddDepartment.jsx";
-import EditDepartment from "./components/department/EditDepartment.jsx";
-import List from "./components/employee/List.jsx";
-import Add from "./components/employee/Add.jsx";
-import View from "./components/employee/View.jsx";
-import Edit from "./components/employee/Edit.jsx";
+import Login from "./pages/Login";
+import AdminDashboard from "./pages/AdminDashboard";
+import EmployeeDashboard from "./pages/EmployeDashboard";
+import PrivateRoutes from "./utils/PrivateRoutes";
+import RoleBaseRoutes from "./utils/RoleBaseRoutes";
+import UnauthorizedPage from "./pages/UnauthorizedPage";
+import AdminSummary from "./components/dashboard/AdminSummary";
+import DepartmentList from "./components/department/DepartmentList";
+import AddDepartment from "./components/department/AddDepartment";
+import EditDepartment from "./components/department/EditDepartment";
+import List from "./components/employee/List";
+import Add from "./components/employee/Add";
+import View from "./components/employee/View";
+import Edit from "./components/employee/Edit";
+import AddSalary from "./components/salary/Add";
+import ViewSalary from "./components/salary/View";
+import SummaryCard from "./components/employeeDasshboard/SummaryCard.jsx";
+import Profile from "./components/employeeDasshboard/Profile.jsx";
+
 
 const App = () => {
   return (
@@ -37,13 +42,16 @@ const App = () => {
                 <Route path={"/admin-dashboard/add-employee"} element={<Add />}></Route>
                 <Route path={"/admin-dashboard/employee/:id"} element={<View />}></Route>
                 <Route path={"/admin-dashboard/employee/edit/:id"} element={<Edit />}></Route>
+                <Route path={"/admin-dashboard/employees/salary/:id"} element={<ViewSalary />}></Route>
 
-                 <Route path={"/admin-dashboard/leaves"} element={<AdminSummary />}></Route>
-                 <Route path={"/admin-dashboard/salary"} element={<AdminSummary />}></Route>
+                 <Route path={"salary/add"} element={<AddSalary />}></Route>
+
+                <Route path={"/admin-dashboard/leaves"} element={<AdminSummary />}></Route>
                  <Route path={"/admin-dashboard/settings"} element={<AdminSummary />}></Route>
             </Route>
             <Route path="/unauthorize" element={<UnauthorizedPage />} />
-            <Route path="/employe-dashboard" element={<EmployeDashboard />}></Route>
+
+
         </Routes>
       </BrowserRouter>
   )

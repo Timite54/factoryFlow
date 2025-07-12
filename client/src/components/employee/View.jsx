@@ -46,37 +46,39 @@ const View = () => {
                     {/*<img src={`http://localhost:3000/${employee?.userId?.profileImage}`} alt="profileImage" className={"w-10 h-10 rounded-full"}/>*/}
                 </div>
                 <div>
-                    <div className={"flex space-x-3 mb-5"}>
-                        <p className={"text-lg font-bold"}>Name:</p>
-                        <p className={"font-medium"}>{employee?.userId?.name}</p>
+                    <div>
+                        <div className={"flex space-x-3 mb-5"}>
+                            <p className={"text-lg font-bold"}>Name:</p>
+                            <p className={"font-medium"}>{employee?.userId?.name}</p>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <div className={"flex space-x-3 mb-5"}>
-                        <p className={"text-lg font-bold"}>Employé ID:</p>
-                        <p className={"font-medium"}>{employee?.employeeId}</p>
+                    <div>
+                        <div className={"flex space-x-3 mb-5"}>
+                            <p className={"text-lg font-bold"}>Employé ID:</p>
+                            <p className={"font-medium"}>{employee?.employeeId}</p>
+                        </div>
                     </div>
-                </div>
-                <div className={"flex space-x-3 mb-5"}>
-                    <p className={"text-lg font-bold"}>Date Of Birth:</p>
-                    <p className={"font-medium"}>{new Date(employee?.dob).toLocaleDateString()}</p>
-                </div>
-                <div>
                     <div className={"flex space-x-3 mb-5"}>
-                        <p className={"text-lg font-bold"}>Gender:</p>
-                        <p className={"font-medium"}>{employee?.gender}</p>
+                        <p className={"text-lg font-bold"}>Date Of Birth:</p>
+                        <p className={"font-medium"}>{new Date(employee?.dob).toLocaleDateString()}</p>
                     </div>
-                </div>
-                <div>
-                    <div className={"flex space-x-3 mb-5"}>
-                        <p className={"text-lg font-bold"}>Department:</p>
-                        <p className={"font-medium"}>{employee?.department?.dep_name}</p>
+                    <div>
+                        <div className={"flex space-x-3 mb-5"}>
+                            <p className={"text-lg font-bold"}>Gender:</p>
+                            <p className={"font-medium"}>{employee?.gender}</p>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <div className={"flex space-x-3 mb-5"}>
-                        <p className={"text-lg font-bold"}>Situation Matrimoniale:</p>
-                        <p className={"font-medium"}>{employee?.maritalStatus}</p>
+                    <div>
+                        <div className={"flex space-x-3 mb-5"}>
+                            <p className={"text-lg font-bold"}>Department:</p>
+                            <p className={"font-medium"}>{employee?.department?.dep_name}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div className={"flex space-x-3 mb-5"}>
+                            <p className={"text-lg font-bold"}>Situation Matrimoniale:</p>
+                            <p className={"font-medium"}>{employee?.maritalStatus}</p>
+                        </div>
                     </div>
                 </div>
             </div>

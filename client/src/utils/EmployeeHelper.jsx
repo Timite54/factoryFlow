@@ -58,6 +58,32 @@ export const fetchDepartments = async () => {
     }
     return departments;
 }
+export const getEmployees = async (id) => {
+    let employees
+    try {
+        const response = await axios.get(`http://localhost:3000/api/employee/department/${id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+        // Vérifie si la réponse est correcte
+        if (response.data && response.data.success) {
+            return response.data.employee;
+        } else {
+            console.warn("Aucun employé trouvé ou réponse inattendue", response.data);
+            return [];
+        }
+        // if (response.data.success) {
+        //     employees = response.data.employees;
+        // }
+    }catch (error) {
+        console.error(error);
+        if (error.response && !error.response.data.error.success)
+            alert(error.response.data.error);
+    }
+    return employees;
+}
 
 export const EmployeeButtons = ({_id}) =>{
     const navigate = useNavigate();
@@ -92,7 +118,7 @@ export const EmployeeButtons = ({_id}) =>{
                     onClick={() => navigate(`/admin-dashboard/employee/edit/${_id}`)}
             >Editer</button>
             <button className={"px-4 py-2 bg-yellow-600 rounded-md text-white"}
-                    // onClick={() => handleDelete(_id)}
+                    onClick={() => navigate(`/admin-dashboard/employees/salary/${_id}`)}
             >salaire</button>
             <button className={"px-4 py-2 bg-red-600 rounded-md text-white"}
                     // onClick={() => handleDelete(_id)}
