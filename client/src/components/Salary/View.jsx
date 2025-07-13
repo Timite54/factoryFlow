@@ -91,7 +91,7 @@ const View = () => {
                                 ))}
                             </tbody>
                         </table>
-                        ) : <div>Aucun Salaire Trouvé Pour Ce Employé</div>}
+                        ) : <div>Aucun Salaire Trouvé Pour Cet Employé</div>}
                 </div>
             )}
         </>

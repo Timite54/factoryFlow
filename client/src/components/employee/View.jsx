@@ -45,7 +45,7 @@ const View = () => {
                     )}
                     {/*<img src={`http://localhost:3000/${employee?.userId?.profileImage}`} alt="profileImage" className={"w-10 h-10 rounded-full"}/>*/}
                 </div>
-                <div>
+                <div className={"gap-4"}>
                     <div>
                         <div className={"flex space-x-3 mb-5"}>
                             <p className={"text-lg font-bold"}>Name:</p>

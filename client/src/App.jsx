@@ -15,8 +15,9 @@ import View from "./components/employee/View";
 import Edit from "./components/employee/Edit";
 import AddSalary from "./components/salary/Add";
 import ViewSalary from "./components/salary/View";
-import SummaryCard from "./components/employeeDasshboard/SummaryCard.jsx";
-import Profile from "./components/employeeDasshboard/Profile.jsx";
+import Summary from "./components/employeeDasshboard/Summary";
+import LeaveList from "./components/leave/List";
+import AddLeave from "./components/leave/Add";
 
 
 const App = () => {
@@ -51,7 +52,22 @@ const App = () => {
             </Route>
             <Route path="/unauthorize" element={<UnauthorizedPage />} />
 
+            <Route path="/employee-dashboard"
+                   element={
+                        <PrivateRoutes>
+                            <RoleBaseRoutes requiredRole={["employee", "admin"]} >
+                                <EmployeeDashboard/>
+                            </RoleBaseRoutes>
+                        </PrivateRoutes>
+                   }
+            >
+                <Route index element={<Summary />}></Route>
 
+                <Route path={"/employee-dashboard/profile/:id"} element={<View />}></Route>
+                <Route path={"/employee-dashboard/leaves"} element={<LeaveList />}></Route>
+                <Route path={"/employee-dashboard/add-leave"} element={<AddLeave />}></Route>
+                <Route path={"/employee-dashboard/settings"} element={<AdminSummary />}></Route>
+            </Route>
         </Routes>
       </BrowserRouter>
   )
