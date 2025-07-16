@@ -70,6 +70,7 @@ const View = () => {
                             </tr>
                             </thead>
                             <tbody>
+
                             {
                                 filteredSalaries.map((salary) => (
                                     <tr

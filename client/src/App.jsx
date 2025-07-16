@@ -13,11 +13,11 @@ import List from "./components/employee/List";
 import AddEmployee from "./components/employee/Add.jsx"
 import View from "./components/employee/View";
 import Edit from "./components/employee/Edit";
-import AddSalary from "./components/salary/Add";
+import AddSalary from "./components/salary/Add.jsx";
 import ViewSalary from "./components/salary/View";
 import Summary from "./components/employeeDasshboard/Summary";
 import LeaveList from "./components/leave/List";
-import AddLeave from "./components/leave/Add";
+import AddLeave from "./components/leave/Add.jsx";
 
 
 const App = () => {
