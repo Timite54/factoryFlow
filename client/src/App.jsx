@@ -10,7 +10,7 @@ import DepartmentList from "./components/department/DepartmentList";
 import AddDepartment from "./components/department/AddDepartment";
 import EditDepartment from "./components/department/EditDepartment";
 import List from "./components/employee/List";
-import Add from "./components/salary/Add"
+import AddEmployee from "./components/employee/Add.jsx"
 import View from "./components/employee/View";
 import Edit from "./components/employee/Edit";
 import AddSalary from "./components/salary/Add";
@@ -40,7 +40,7 @@ const App = () => {
                  <Route path={"/admin-dashboard/department/:id"} element={<EditDepartment />}></Route>
 
                 <Route path={"/admin-dashboard/employees"} element={<List />}></Route>
-                <Route path={"/admin-dashboard/add-employee"} element={<Add />}></Route>
+                <Route path={"/admin-dashboard/add-employee"} element={<AddEmployee />}></Route>
                 <Route path={"/admin-dashboard/employee/:id"} element={<View />}></Route>
                 <Route path={"/admin-dashboard/employee/edit/:id"} element={<Edit />}></Route>
                 <Route path={"/admin-dashboard/employees/salary/:id"} element={<ViewSalary />}></Route>
