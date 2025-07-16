@@ -10,7 +10,7 @@ import DepartmentList from "./components/department/DepartmentList";
 import AddDepartment from "./components/department/AddDepartment";
 import EditDepartment from "./components/department/EditDepartment";
 import List from "./components/employee/List";
-import Add from "./components/Salary/Add.jsx"
+import Add from "./components/salary/Add.jsx"
 import View from "./components/employee/View";
 import Edit from "./components/employee/Edit";
 import AddSalary from "./components/salary/Add";
