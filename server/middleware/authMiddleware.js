@@ -7,7 +7,7 @@ const authMiddleware = async (req, res, next) => {
         if (!token) {
             return res.status(404).json({success: false, error: "Token not provided"});
         }
-        const decodedToken = jwt.verify(token, process.env.JWT_KEY);
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
         if (!decodedToken) {
             return res.status(401).json({success: false, error: "Invalid token"});
         }
